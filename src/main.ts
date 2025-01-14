@@ -18,6 +18,7 @@
  *
  *  ======================================================================
  */
+import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from '@/app.module';
@@ -26,9 +27,13 @@ import { AppModule } from '@/app.module';
 require('module-alias/register');
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule);
+	const logger = new Logger();
+
+	const app = await NestFactory.create(AppModule, { rawBody: true });
 
 	await app.listen(5000);
+
+	logger.log(`Server running on ${await app.getUrl()}`);
 }
 
 bootstrap();

@@ -19,10 +19,11 @@
  *  ======================================================================
  */
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 
 import { CallbackModule } from '@/callback/callback.module';
 
 @Module({
-	imports: [CallbackModule],
+	imports: [ConfigModule.forRoot({ isGlobal: true }), CallbackModule],
 })
 export class AppModule {}

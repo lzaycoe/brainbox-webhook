@@ -18,7 +18,23 @@
  *
  *  ======================================================================
  */
-import { Controller } from '@nestjs/common';
+import {
+	Controller,
+	HttpCode,
+	HttpStatus,
+	Post,
+	Request,
+} from '@nestjs/common';
+
+import { CallbackService } from '@/callback/callback.service';
 
 @Controller('callback')
-export class CallbackController {}
+export class CallbackController {
+	constructor(private readonly callbackService: CallbackService) {}
+
+	@HttpCode(HttpStatus.OK)
+	@Post('learner/callback')
+	async learnerCreateCallback(@Request() req: any) {
+		return this.callbackService.syncDatabaseFromLearner(req);
+	}
+}
