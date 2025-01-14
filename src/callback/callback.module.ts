@@ -20,9 +20,11 @@
  */
 import { Module } from '@nestjs/common';
 
-import { CallbackModule } from '@/callback/callback.module';
+import { CallbackController } from '@/callback/callback.controller';
+import { CallbackService } from '@/callback/callback.service';
 
 @Module({
-	imports: [CallbackModule],
+	controllers: [CallbackController],
+	providers: [CallbackService],
 })
-export class AppModule {}
+export class CallbackModule {}

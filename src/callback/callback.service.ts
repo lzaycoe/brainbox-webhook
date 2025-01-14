@@ -18,11 +18,7 @@
  *
  *  ======================================================================
  */
-import { Module } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
-import { CallbackModule } from '@/callback/callback.module';
-
-@Module({
-	imports: [CallbackModule],
-})
-export class AppModule {}
+@Injectable()
+export class CallbackService {}
