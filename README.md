@@ -4,6 +4,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/lzaycoe/brainbox-webhook)
 ![GitHub repo size](https://img.shields.io/github/repo-size/lzaycoe/brainbox-webhook)
 ![GitHub License](https://img.shields.io/github/license/lzaycoe/brainbox-webhook)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lzaycoe_brainbox-webhook&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lzaycoe_brainbox-webhook)
 
 > Webhook for BrainBox
 
