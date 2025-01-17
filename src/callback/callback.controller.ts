@@ -33,7 +33,7 @@ export class CallbackController {
 	constructor(private readonly callbackService: CallbackService) {}
 
 	@HttpCode(HttpStatus.OK)
-	@Post('learner/callback')
+	@Post('learner')
 	async learnerCreateCallback(@Request() req: any) {
 		return this.callbackService.syncDatabaseFromLearner(req);
 	}

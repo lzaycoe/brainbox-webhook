@@ -88,6 +88,25 @@ export class CallbackService {
 		);
 		this.logger.log('Webhook payload:', evt.data);
 
+		const exsitedUser = await this.prismaService.user.findUnique({
+			where: { clerkId: id },
+		});
+
+		if (!exsitedUser) {
+			this.logger.log('Info: User not found');
+
+			// Save clerkId to database
+			const newUser = await this.prismaService.user.create({
+				data: {
+					clerkId: id,
+				},
+			});
+
+			this.logger.log('User created:', newUser);
+		} else {
+			this.logger.log('User found:', exsitedUser);
+		}
+
 		// Optionally, handle any further processing with the payload data
 		return { success: true, message: 'Webhook received' };
 	}
