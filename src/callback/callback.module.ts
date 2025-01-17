@@ -22,9 +22,10 @@ import { Module } from '@nestjs/common';
 
 import { CallbackController } from '@/callback/callback.controller';
 import { CallbackService } from '@/callback/callback.service';
+import { PrismaService } from '@/callback/prisma.service';
 
 @Module({
 	controllers: [CallbackController],
-	providers: [CallbackService],
+	providers: [CallbackService, PrismaService],
 })
 export class CallbackModule {}

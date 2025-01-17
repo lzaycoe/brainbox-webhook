@@ -28,9 +28,13 @@ import {
 import { Request } from 'express';
 import { Webhook } from 'svix';
 
+import { PrismaService } from '@/callback/prisma.service';
+
 @Injectable()
 export class CallbackService {
 	private readonly logger = new Logger(CallbackService.name);
+
+	constructor(private readonly prismaService: PrismaService) {}
 
 	async syncDatabaseFromLearner(@Req() req: RawBodyRequest<Request>) {
 		const SIGNING_SECRET = process.env.SIGNING_SECRET;
